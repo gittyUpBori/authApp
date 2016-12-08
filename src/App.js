@@ -9,11 +9,11 @@ class App extends Component {
 
   componentWillMount() {
     firebase.initializeApp({
-      apiKey: 'AIzaSyB-pfjOZjfy1OUAQPKt_-E3OhmGl56dwkI',
-      authDomain: 'authentication-f4ac7.firebaseapp.com',
-      databaseURL: 'https://authentication-f4ac7.firebaseio.com',
-      storageBucket: 'authentication-f4ac7.appspot.com',
-      messagingSenderId: '689400872834'
+      apiKey: 'AIzaSyAri5nh7ZkR_B0q2u57omcfi0v_N8--Kz4',
+      authDomain: 'authentication-281b2.firebaseapp.com',
+      databaseURL: 'https://authentication-281b2.firebaseio.com',
+      storageBucket: 'authentication-281b2.appspot.com',
+      messagingSenderId: '482365430716'
     });
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -28,7 +28,11 @@ class App extends Component {
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
-        return <Button>Log Out</Button>;
+        return (
+          <Button onPress={() => firebase.auth().signOut()}>
+            Log out
+          </Button>
+        );
       case false:
         return <LoginForm />;
       default:
